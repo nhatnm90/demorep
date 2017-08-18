@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        Score: <input type="text" id='inputScore' />
+        <input type="submit" id="btnSubmit" onclick="processScore()" /><br />
+        <p id='result'></p> 
+        <script>
+            // document.getElementById('btnSubmit').addEventListener('load', 
+            //     () => { 
+            //         this.addEventListener('click', ()=>{ alert('click')})
+            // });
+
+            var resultDisplay = document.getElementById('result');
+
+            function processScore(){
+                var promise = new Promise(
+                    (resolve, reject)=>{
+                        let score = document.getElementById('inputScore').value;
+                        let scoreValue = parseFloat(score);
+                        if (scoreValue >= 5.5){
+                            resolve(score);
+                        }
+                        else {
+                            reject(score);
+                        }
+                });
+
+                var showOff = function () {
+                    return Promise.resolve('Hey friend, I have a new motobike');
+                };
+
+                var newPromise = () => Promise.reject('New promise: reject');
+
+                promise
+                    // .then(showOff)
+                    .then((mes)=>{
+                        console.log(mes);
+                        return Promise.resolve(mes);
+                    })
+                    .then(
+                        (score)=>{
+                            let mes = `Result: ${score}. You will have a new motobike`;
+                            resultDisplay.innerHTML = mes;
+                        },
+                        (score)=>{
+                            let mes = `Result: ${score}. $200 flow away`;
+                            resultDisplay.innerHTML = mes;
+                        }
+                    )
+                    .then(newPromise)
+                    .then((text)=> console.log(text))
+                    .catch(()=> resultDisplay.innerHTML += 'Please input a number!');
+            }
+
+
+            // window.onload(()=>{
+            // });
+
+        </script>
+	</body>
+</html>
