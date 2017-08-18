@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        Score: <input type="text" id='inputScore' />
+        <input type="submit" id="btnSubmit" onclick="processScore()" /><br />
+        <p id='result'></p> 
+        <script>
+            function* gCreateDayInWeek(){
+                for(let i=1; i<=7;i++){
+                    yield* gConvertToCharacter(i);
+                }
+            }
+
+            function createDayInMonth(){
+                var result = new Set();
+                for(let i=1; i<=31;i++){
+                    result.add(i);
+                }
+                return result;
+            }
+
+            function* gCreateMonthInYear(){
+                 for(let i=1; i<=12;i++){
+                    yield i;
+                }
+            }
+
+            function* gConvertToCharacter(dayInWeek){
+                switch (dayInWeek){
+                case 1:
+                    yield 'Sun'
+                    break;
+                case 2:
+                    yield 'Mon'
+                    break;
+                case 3:
+                    yield 'Tue'
+                    break;
+                case 4:
+                    yield 'Wed'
+                    break;
+                case 5:
+                    yield 'Thu'
+                    break;
+                case 6:
+                    yield 'Fri'
+                    break;
+                case 7:
+                    yield 'Sat'
+                    break;
+                }
+            }
+
+            var gen = gCreateDayInWeek();
+            console.log(gen.next().value);
+                        console.log(gen.next().value);
+                                    console.log(gen.next().value);
+                                                console.log(gen.next().value);
+                                                            console.log(gen.next().value);
+                                                                        console.log(gen.next().value);
+                                                                                    console.log(gen.next().value);
+                                                                                                console.log(gen.next().value);
+        </script>
+	</body>
+</html>
