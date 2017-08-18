@@ -7,11 +7,6 @@
         <input type="submit" id="btnSubmit" onclick="processScore()" /><br />
         <p id='result'></p> 
         <script>
-            // document.getElementById('btnSubmit').addEventListener('load', 
-            //     () => { 
-            //         this.addEventListener('click', ()=>{ alert('click')})
-            // });
-
             var resultDisplay = document.getElementById('result');
 
             function processScore(){
@@ -53,11 +48,6 @@
                     .then((text)=> console.log(text))
                     .catch(()=> resultDisplay.innerHTML += 'Please input a number!');
             }
-
-
-            // window.onload(()=>{
-            // });
-
         </script>
 	</body>
 </html>
