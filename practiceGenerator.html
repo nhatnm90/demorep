@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+           var foo, f;
+        foo = function * () {
+            console.log('generator 1');
+            console.log('yield 1', yield 'A');
+            const array = [2,3,4];
+
+            let iterator = array[Symbol.iterator]();
+            console.log('Iterator: ' + iterator.next().value);
+
+            console.log(yield array);
+            // console.log('generator 2');
+            // console.log('yield 2', yield 'B');
+            // console.log('generator 3');
+        };
+        f = foo();
+        console.log('tick 1');
+        console.log(f.next().value);
+        console.log('tick 2');
+        console.log(f.next());
+        console.log('tick 3');
+        console.log(f.next('c'));
+        // console.log('tick 4');
+        </script>
+    </head>
+    <body>
+        Practice Generator
+        
+	</body>
+</html>
